@@ -34,16 +34,18 @@
   Studio Mode transition panel
 ----------------------------------------------------------------------------- */
 
-/* Work in progress */
-#centralwidget>.QWidget QLabel {}
+#centralwidget > .QWidget QLabel {
+  max-width: 0;
+}
 
 /* -----------------------------------------------------------------------------
   Preview/Program labels
 ----------------------------------------------------------------------------- */
 
-.label-preview-title {
+#centralwidget > .QWidget QLabel.label-preview-title {
   font-size: 16pt;
   margin-bottom: 2px;
+  max-width: 999px;
 }
 
 /* -----------------------------------------------------------------------------
