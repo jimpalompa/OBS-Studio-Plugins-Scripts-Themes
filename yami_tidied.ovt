@@ -7,14 +7,12 @@
 }
 
 /* -----------------------------------------------------------------------------
-  Hide elements
+  Dock Controls
 ----------------------------------------------------------------------------- */
+
 #controlsDock #virtualCamLayout,
 #controlsDock #virtualCamButton,
-#controlsDock #virtualCamConfigButton,
-#controlsDock #exitButton,
-#centralwidget .QWidget QPushButton,
-#centralwidget .QWidget .slider-tbar {
+#controlsDock #virtualCamConfigButton {
   min-width: 0;
   max-width: 0;
   min-height: 0;
@@ -31,21 +29,36 @@
 }
 
 /* -----------------------------------------------------------------------------
-  Studio Mode transition panel
+  Preview / Studio Mode
 ----------------------------------------------------------------------------- */
 
-#centralwidget > .QWidget QLabel {
+#centralwidget .QWidget QPushButton,
+#centralwidget .QWidget .slider-tbar,
+#centralwidget .QWidget#previewXContainer,
+#centralwidget .QScrollBar#previewYScrollBar {
+  min-width: 0;
+  max-width: 0;
+  min-height: 0;
+  max-height: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  color: transparent;
+  background: transparent;
+  border: none;
+  outline: none;
+  qproperty-icon: none;
+}
+
+#centralwidget .QWidget QLabel {
   max-width: 0;
 }
 
-/* -----------------------------------------------------------------------------
-  Preview/Program labels
------------------------------------------------------------------------------ */
-
-#centralwidget > .QWidget QLabel.label-preview-title {
+#centralwidget .QWidget QLabel.label-preview-title {
   font-size: 16pt;
   margin-bottom: 2px;
-  max-width: 999px;
+  max-width: 9999px;
 }
 
 /* -----------------------------------------------------------------------------
