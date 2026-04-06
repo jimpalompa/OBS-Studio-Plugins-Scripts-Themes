@@ -10,17 +10,14 @@
   Scene Tree Grid Mode
 ----------------------------------------------------------------------------- */
 
-SceneTree {
-  qproperty-gridItemWidth: 180;
-  qproperty-gridItemHeight: 52;
-}
-
 .list-grid {
   padding: 4px 1px 0 4px;
 }
 
-.list-grid SceneTree::item {
-  margin: 2px;
+.list-grid SceneTree {
+  qproperty-gridItemWidth: 180;
+  qproperty-gridItemHeight: 58;
+  font-size: 14px;
 }
 
 /* -----------------------------------------------------------------------------
@@ -43,10 +40,6 @@ SceneTree {
   border: none;
   outline: none;
   qproperty-icon: none;
-}
-
-#controlsFrame QPushButton {
-  padding: var(--padding_base);
 }
 
 /* -----------------------------------------------------------------------------
