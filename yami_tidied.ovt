@@ -7,12 +7,29 @@
 }
 
 /* -----------------------------------------------------------------------------
+  Scene Tree Grid Mode
+----------------------------------------------------------------------------- */
+
+SceneTree {
+  qproperty-gridItemWidth: 180;
+  qproperty-gridItemHeight: 52;
+}
+
+.list-grid {
+  padding: 4px 1px 0 4px;
+}
+
+.list-grid SceneTree::item {
+  margin: 2px;
+}
+
+/* -----------------------------------------------------------------------------
   Dock Controls
 ----------------------------------------------------------------------------- */
 
-#controlsDock #virtualCamLayout,
-#controlsDock #virtualCamButton,
-#controlsDock #virtualCamConfigButton {
+#controlsFrame #virtualCamLayout,
+#controlsFrame #virtualCamButton,
+#controlsFrame #virtualCamConfigButton {
   min-width: 0;
   max-width: 0;
   min-height: 0;
@@ -28,8 +45,12 @@
   qproperty-icon: none;
 }
 
+#controlsFrame QPushButton {
+  padding: var(--padding_base);
+}
+
 /* -----------------------------------------------------------------------------
-  Preview / Studio Mode
+  Studio Mode
 ----------------------------------------------------------------------------- */
 
 #centralwidget .QWidget QPushButton,
