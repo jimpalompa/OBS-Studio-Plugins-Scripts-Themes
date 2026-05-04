@@ -6,27 +6,19 @@
   dark: 'true';
 }
 
-/* -----------------------------------------------------------------------------
-  Scene Tree Grid Mode
------------------------------------------------------------------------------ */
-
-.list-grid {
-  padding: 4px 1px 0 4px;
-}
-
-.list-grid SceneTree {
-  qproperty-gridItemWidth: 180;
-  qproperty-gridItemHeight: 58;
-  font-size: 14px;
+@OBSThemeVars {
+  --font_larger: calc(1.2pt * var(--font_base_value));
+  --spacing_base_x2: calc(var(--spacing_base) * 2);
+  --griditemheight_large: calc(var(--input_height_base) * 1.55)
 }
 
 /* -----------------------------------------------------------------------------
-  Dock Controls
+  Preview (OBSBasic.ui)
 ----------------------------------------------------------------------------- */
 
-#controlsFrame #virtualCamLayout,
-#controlsFrame #virtualCamButton,
-#controlsFrame #virtualCamConfigButton {
+/* Hide scaling controls / scrollbars */
+OBSBasic #centralwidget .QWidget#previewXContainer,
+OBSBasic #centralwidget .QScrollBar#previewYScrollBar {
   min-width: 0;
   max-width: 0;
   min-height: 0;
@@ -35,46 +27,75 @@
   height: 0;
   margin: 0;
   padding: 0;
-  color: transparent;
-  background: transparent;
+  spacing: 0;
   border: none;
   outline: none;
-  qproperty-icon: none;
-}
-
-#controlsFrame QPushButton {
-  margin: var(--spacing_base) var(--spacing_base);
 }
 
 /* -----------------------------------------------------------------------------
-  Studio Mode
+  Studio Mode (OBSBasic_StudioMode.cpp)
 ----------------------------------------------------------------------------- */
 
-#centralwidget .QWidget QPushButton,
-#centralwidget .QWidget .slider-tbar,
-#centralwidget .QWidget#previewXContainer,
-#centralwidget .QScrollBar#previewYScrollBar {
-  min-width: 0;
-  max-width: 0;
-  min-height: 0;
-  max-height: 0;
-  width: 0;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  color: transparent;
-  background: transparent;
-  border: none;
-  outline: none;
-  qproperty-icon: none;
-}
-
-#centralwidget .QWidget QLabel {
-  max-width: 0;
-}
-
-#centralwidget .QWidget QLabel.label-preview-title {
-  font-size: 16pt;
+/* Preview / Program label sizes */
+OBSBasic #centralwidget .QWidget QLabel.label-preview-title {
+  font-size: var(--font_larger);
   margin-bottom: 2px;
+}
+
+/* Hide studio mode transitions widget */
+OBSBasic #centralwidget > .QWidget > QWidget {
+  max-width: 0;
+}
+
+/* Unhide widgets fix */
+OBSBasic #centralwidget #previewContainer,
+OBSBasic #centralwidget #previewDisabledWidget,
+OBSBasic #centralwidget #previewDisabledWidget * {
   max-width: 9999px;
 }
+
+/* -----------------------------------------------------------------------------
+  Dock Scenes (OBSBasic.ui)
+----------------------------------------------------------------------------- */
+
+/* Fix padding for scenes grid mode */
+OBSBasic #scenesDock .list-grid {
+  padding: var(--padding_container);
+  padding-right: max(0);
+}
+
+/* Grid mode larger button sizes */
+OBSBasic #scenesDock .list-grid SceneTree {
+  font-size: var(--font_large);
+  qproperty-gridItemWidth: 180;
+  qproperty-gridItemHeight: var(--griditemheight_large);
+}
+
+/* -----------------------------------------------------------------------------
+  Dock Controls (OBSBasicControls.ui)
+----------------------------------------------------------------------------- */
+
+/* Fix margin for streaming + broadcast buttons */
+OBSBasicControls #controlsFrame QPushButton#broadcastButton {
+  margin-left: var(--spacing_base_x2);
+}
+
+/* Hide virtual camera buttons */
+OBSBasicControls #controlsFrame QPushButton#virtualCamButton,
+OBSBasicControls #controlsFrame QPushButton#virtualCamConfigButton {
+  min-width: 0;
+  max-width: 0;
+  min-height: 0;
+  max-height: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+  border: none;
+  outline: none;
+}
+
+/* -----------------------------------------------------------------------------
+  The end
+----------------------------------------------------------------------------- */
